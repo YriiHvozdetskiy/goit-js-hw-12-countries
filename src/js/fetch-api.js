@@ -21,7 +21,7 @@ const myStack = new Stack({
 const option = {
   text: 'To many matches found. Please enter a more specific query!',
   type: 'error',
-  delay: 999000,
+  delay: 2000,
   labels: { close: 'Close', stick: 'Pin', unstick: 'Unpin' },
   stack: myStack,
 };
@@ -31,7 +31,14 @@ const myAlert = alert;
 
 function whenNoCountry() {
   renderCountries('');
-  return console.log('Country is not defined!');
+  console.log('Country is not defined!');
+  return myAlert({
+    text: 'Country is not defined!',
+    type: 'error',
+    delay: 2000,
+    labels: { close: 'Close', stick: 'Pin', unstick: 'Unpin' },
+    stack: myStack,
+  });
 }
 
 function tooLongList() {
