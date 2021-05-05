@@ -21,11 +21,10 @@ const myStack = new Stack({
 const option = {
   text: 'To many matches found. Please enter a more specific query!',
   type: 'error',
-  delay: 2000,
+  delay: 99000,
   labels: { close: 'Close', stick: 'Pin', unstick: 'Unpin' },
   stack: myStack,
 };
-// defaults.maxTextHeight = '50px';
 
 const myAlert = alert;
 
@@ -35,8 +34,7 @@ function whenNoCountry() {
   return myAlert({
     text: 'Country is not defined!',
     type: 'error',
-    delay: 2000,
-    labels: { close: 'Close', stick: 'Pin', unstick: 'Unpin' },
+    delay: 99000,
     stack: myStack,
   });
 }
