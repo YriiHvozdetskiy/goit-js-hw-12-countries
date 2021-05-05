@@ -65,26 +65,3 @@ margin: 0;
   display: flex;
   max-width: 350px;
 }
-
-.pnotify {
-  position:absolute;
-}
-
- div .pnotify-closer.brighttheme-closer.pnotify-hidden{
-  display: flex;
-  justify-content: flex-end;
-}
-
-div .pnotify-closer.brighttheme-closer{
-  display: flex;
-  justify-content: flex-end;
-}
-
-div .pnotify-sticker.brighttheme-sticker.pnotify-hidden{
-  display: flex;
-  justify-content: flex-end;
-}
-div .pnotify-sticker.brighttheme-sticker{
-  display: flex;
-  justify-content: flex-end;
-}

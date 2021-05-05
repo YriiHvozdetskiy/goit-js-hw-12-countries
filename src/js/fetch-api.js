@@ -4,45 +4,27 @@ import API from './api-service';
 import { refs } from './get-refs';
 const debounce = require('lodash.debounce');
 
-import { alert, defaults, Stack } from '@pnotify/core';
+import { error } from '@pnotify/core';
 import '@pnotify/core/dist/BrightTheme.css';
+import '@pnotify/core/dist/Material.css';
+import '@pnotify/core/dist/PNotify.css';
 
-const myStack = new Stack({
-  dir1: 'down',
-  dir2: 'left',
-  firstpos1: 25,
-  firstpos2: 25,
-  spacing1: 36,
-  spacing2: 36,
-  push: 'bottom',
-  context: document.body,
-});
-
-const option = {
-  text: 'To many matches found. Please enter a more specific query!',
-  type: 'error',
-  delay: 99000,
-  labels: { close: 'Close', stick: 'Pin', unstick: 'Unpin' },
-  stack: myStack,
-};
-
-const myAlert = alert;
+const myError = error;
 
 function whenNoCountry() {
   renderCountries('');
-  console.log('Country is not defined!');
-  return myAlert({
+  return myError({
     text: 'Country is not defined!',
-    type: 'error',
-    delay: 99000,
-    stack: myStack,
+    delay: 2500,
   });
 }
 
 function tooLongList() {
   renderCountries('');
-  console.log('ведіть точнішу назву');
-  return myAlert(option);
+  return myError({
+    text: 'To many matches found. Please enter a more specific query!',
+    delay: 2500,
+  });
 }
 
 refs.input.addEventListener('input', debounce(onInput, 500));
@@ -61,7 +43,6 @@ function onInput(e) {
     .then(renderCountries)
     .catch(error => {
       renderCountries('');
-      return console.log('error', error);
     });
 }
 
